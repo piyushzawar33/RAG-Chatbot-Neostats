@@ -25,6 +25,8 @@ st.title("Podcast Question Answering Assistant")
 st.write("Ask questions related to the **Elon Musk and Nikhil Kamath's** recent Tech podcast.")
 
 query = st.text_input("Enter your question:")
+MAX_CONTEXT_CHARS = 2000
+final_context = final_context[:MAX_CONTEXT_CHARS]
 
 if st.button("Generate Answer") and query.strip():
     with st.spinner("Retrieving relevant transcript context..."):
@@ -69,3 +71,4 @@ if st.button("Generate Answer") and query.strip():
     if web_context:
         with st.expander("Web Search Result"):
             st.write(web_context)
+
